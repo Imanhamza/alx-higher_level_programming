@@ -1,54 +1,44 @@
 #include "lists.h"
 
-
 /**
- * add_nodeint - insert a new node at the begining of a list
- * @head: a pointer to the head of the list
- * @n: the integer to set for the new element
- * Return: a pointer to the new node
- */
-
-listint_t *add_nodeint(listint_t **head, const int n)
-{
-	listint_t *node = malloc(sizeof(listint_t));
-
-	if (node == NULL)
-		return (NULL);
-
-	node->n = (int) n;
-	node->next = *head;
-	*head = node;
-
-	return (node);
-}
-
-/**
- * is_palindrome - checks if the list is a palindrome
- * @head: a pointer to the head of the list
- * Return: 1 if is palindrome 0 if not
+ * is_palindrome - checks if a singly linked list is a palindrome.
+ * @head: A pointer to the head of alinked list
+ * Return:0 if it is not a palindrome, 1 if it is a palindrome
  */
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *p = *head;
-	int i, j, count = 0;
-	int arr[5000];
-
-	if (*head == NULL)
+	/* Handle empty or single node list */
+	if (head == NULL || *head == NULL)
 		return (1);
-
-	while (p)
+	listint_t *slow = *head,
+		  *fast = *head;
+	/* Find the middle node */
+	while (fast != NULL && fast->next != NULL)
 	{
-		arr[count] = p->n;
-		p = p->next;
-		count++;
+		slow = slow->next;
+		fast = fast->next->next;
 	}
-	j = count - 1;
-	for (i = 0; i < count / 2; i++, j--)
+	/*reverse the list */
+	listint_t *prev = NULL,
+		  *current = slow,
+		  *next;
+	while (current != NULL)
 	{
-		if (arr[i] != arr[j])
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	/* compare the first and secod halves */
+	listint_t *node1 = *head,
+		  *node2 = prev;
+	while (node1 != NULL && node2 != NULL)
+	{
+		if (node1->n != node2->n)
 			return (0);
+		node1 = node1->next;
+		node2 = node2->next;
 	}
-	
 	return (1);
 }
