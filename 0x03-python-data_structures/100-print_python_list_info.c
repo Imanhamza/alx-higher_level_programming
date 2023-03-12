@@ -19,7 +19,7 @@ void print_python_list_info(PyObject *p)
 
 	/* Get the allocated memory */
 	List = (PyListObject *)p;
-	print("[*] Allocated = %ld\n", list->allocated);
+	printf("[*] Allocated = %ld\n", list->allocated);
 
 	/* Get all the elements' type in the list*/
 	for (i = 0; i < size; i++)
