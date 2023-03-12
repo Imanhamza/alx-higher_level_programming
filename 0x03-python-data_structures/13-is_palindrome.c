@@ -5,41 +5,33 @@
  * @head: A pointer to the head of alinked list
  * Return:0 if it is not a palindrome, 1 if it is a palindrome
  */
-
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow = *head,
-		  *fast = *head,
-		  *prev = NULL,
-		  *current = slow,
-		  *next,
-		  *node1 = *head,
-		  *node2 = prev;
+	listint_t *temp = *head;
+	return check_pal(&temp, *head);
+}
 
-	/* Handle empty or single node list */
-	if (head == NULL || *head == NULL)
+/**
+ * check_pal - helper function to check if the list is a palindrome
+ * @left: pointer to the left end of the list
+ * @right: pointer to the right end of the list
+ * Return: 1 if is palindrome 0 if not
+ */
+int check_pal(listint_t **left, listint_t *right)
+{
+	int is_pal;
+
+	if (right == NULL)
 		return (1);
-	/* Find the middle node */
-	while (fast != NULL && fast->next != NULL)
-	{
-		slow = slow->next;
-		fast = fast->next->next;
-	}
-	/*reverse the list */
-	while (current != NULL)
-	{
-		next = current->next;
-		current->next = prev;
-		prev = current;
-		current = next;
-	}
-	/* compare the first and secod halves */
-	while (node1 != NULL && node2 != NULL)
-	{
-		if (node1->n != node2->n)
-			return (0);
-		node1 = node1->next;
-		node2 = node2->next;
-	}
-	return (1);
+
+	is_pal = check_pal(left, right->next);
+
+	if (is_pal == 0)
+		return (0);
+
+	is_pal = ((*left)->n == right->n);
+
+	*left = (*left)->next;
+
+	return (is_pal);
 }
