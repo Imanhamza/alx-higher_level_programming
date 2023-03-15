@@ -9,7 +9,7 @@ def roman_to_int(roman_string):
             "D": 500,
             "M": 1000
             }
-    if roman_string:
+    if roman_string and (type(roman_string) is str):
         # get the length of the string
         len_s = len(roman_string)
         # get the last number value
