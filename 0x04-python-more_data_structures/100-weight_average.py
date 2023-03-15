@@ -11,3 +11,4 @@ def weight_average(my_list=[]):
                     bottom += i[j]
             top += mul
         return top / bottom
+    return 0
