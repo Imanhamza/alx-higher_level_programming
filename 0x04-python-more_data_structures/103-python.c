@@ -9,7 +9,7 @@
 void print_python_bytes(PyObject *p)
 {
 	char *str;
-	Py_size_t len,
+	Py_ssize_t len,
 		  i;
 	/* check if the *p is a 'o' or not */
 	if (!(Py_bytes_check(*p)))
