@@ -9,24 +9,32 @@ void print_python_bytes(PyObject *p);
  */
 void print_python_list(PyObject *p)
 {
-	Py_ssize_t i;
-	PyObject *in_list;
-
-	if (PyList_Check(p))
+	const int MAX_BYTES = 10;
+	if (!PyList_Check(p))
 	{
-		printf("[*] Python list info\n");
-		printf("[*] Size of the Python List = %lu\n", PyList_Size(p));
-		printf("[*] Allocated = %lu\n", ((PyListObject *)p)->allocated);
-		for (i = 0; i < PyList_Size(p); i++)
+		printf("[ERROR] Invalid list object\n");
+		return;
+	}
+	printf("[*] Python list info\n");
+	printf("[*] Size of the Python list = %zd\n", PyList_Size(p));
+	printf("[*] Allocated = %zd\n", ((PyListObject *) p)->allocated);
+	for (Py_ssize_t i = 0; i < PyList_Size(p); i++)
+	{
+		PyObject *item = PyList_GetItem(p, i);
+		if (!item)
 		{
-			in_list = PySequence_GetItem(p, i);
-			printf("Element %lu: %s\n", i,
-					in_list->ob_type->tp_name);
-			if (strcmp(in_list->ob_type->tp_name, "bytes") == 0)
-				print_python_bytes(in_list);
+			printf("[ERROR] Failed to retrieve item %zd\n", i);
+			continue;
+		}
+		const char *type_name = Py_TYPE(item)->tp_name;
+		printf("Element %zd: %s\n", i, type_name);
+		if (strcmp(type_name, "bytes") == 0)
+		{
+			print_python_bytes(item);
 		}
 	}
 }
+
 /**
  * print_python_bytes - prints some basic info about python bytes
  * @p: python object
