@@ -10,6 +10,9 @@ void print_python_bytes(PyObject *p);
 void print_python_list(PyObject *p)
 {
 	/*const int MAX_BYTES = 10;*/
+	 PyObject *item;
+	 const char *type_name;
+
 	if (!PyList_Check(p))
 	{
 		printf("[ERROR] Invalid list object\n");
@@ -20,8 +23,8 @@ void print_python_list(PyObject *p)
 	printf("[*] Allocated = %zd\n", ((PyListObject *) p)->allocated);
 	for (Py_ssize_t i = 0; i < PyList_Size(p); i++)
 	{
-		PyObject *item = PyList_GetItem(p, i);
-		const char *type_name = Py_TYPE(item)->tp_name;
+		item = PyList_GetItem(p, i);
+		type_name = Py_TYPE(item)->tp_name;
 
 		if (!item)
 		{
