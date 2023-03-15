@@ -20,8 +20,8 @@ void print_python_list(PyObject *p)
 		return;
 	}
 	printf("[*] Python list info\n");
-	printf("[*] Size of the Python list = %d\n", PyList_Size(p));
-	printf("[*] Allocated = %d\n", ((PyListObject *) p)->allocated);
+	printf("[*] Size of the Python list = %lu\n", PyList_Size(p));
+	printf("[*] Allocated = %lu\n", ((PyListObject *) p)->allocated);
 	for (i = 0; i < PyList_Size(p); i++)
 	{
 		item = PyList_GetItem(p, i);
@@ -29,11 +29,11 @@ void print_python_list(PyObject *p)
 
 		if (!item)
 		{
-			printf("[ERROR] Failed to retrieve item %d\n", i);
+			printf("[ERROR] Failed to retrieve item %lu\n", i);
 			continue;
 		}
 
-		printf("Element %d: %s\n", i, type_name);
+		printf("Element %lu: %s\n", i, type_name);
 		if (strcmp(type_name, "bytes") == 0)
 		{
 			print_python_bytes(item);
@@ -51,6 +51,7 @@ void print_python_bytes(PyObject *p)
 	const int MAX_BYTES = 10;
 	char *bytes;
 	Py_ssize_t size;
+	int i;
 
 	if (!PyBytes_Check(p))
 	{
@@ -58,9 +59,9 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 	PyBytes_AsStringAndSize(p, &bytes, &size);
-	printf("Size: %zd\n", size);
+	printf("Size: %lu\n", size);
 	printf("Contents: ");
-	for (int i = 0; i < size && i < MAX_BYTES; i++)
+	for (i = 0; i < size && i < MAX_BYTES; i++)
 	{
 		printf("%02x ", bytes[i] & 0xFF);
 	}
