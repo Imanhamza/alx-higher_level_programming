@@ -12,7 +12,7 @@ void print_python_bytes(PyObject *p)
 	Py_ssize_t len,
 		  i;
 	/* check if the *p is a 'o' or not */
-	if (!(Py_bytes_check(*p)))
+	if (!(PyBytes_Check(p)))
 		printf(" [ERROR] Invalid Bytes Object\n");
 	else
 	{
