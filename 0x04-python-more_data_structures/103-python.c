@@ -2,6 +2,31 @@
 #include <stdio.h>
 
 /**
+ * print_python_list - print some basic info about Python lists
+ * @p: PyObject
+ * Return: Nothing
+ */
+void print_python_list(PyObject *p)
+{
+	Py_ssize_t i;
+	PyObject *in_list;
+
+	if (PyList_Check(p))
+	{
+		printf("[*] Python list info\n");
+		printf("[*] Size of the Python List = %lu\n", PyList_Size(p));
+		printf("[*] Allocated = %lu\n", ((PyListObject *)p)->allocated);
+		for (i = 0; i < PyList_Size(p); i++)
+		{
+			in_list = PySequence_GetItem(p, i);
+			printf("Element %lu: %s\n", i,
+					in_list->ob_type->tp_name);
+			if (strcmp(in_list->ob_type->tp_name, "bytes") == 0)
+				print_python_bytes(in_list);
+		}
+	}
+}
+/**
  * print_python_bytes - prints some basic info about python bytes
  * @p: python object
  * Return: Nothing
