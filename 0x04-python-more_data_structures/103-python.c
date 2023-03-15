@@ -9,7 +9,7 @@ void print_python_bytes(PyObject *p);
  */
 void print_python_list(PyObject *p)
 {
-	const int MAX_BYTES = 10;
+	/*const int MAX_BYTES = 10;*/
 	if (!PyList_Check(p))
 	{
 		printf("[ERROR] Invalid list object\n");
