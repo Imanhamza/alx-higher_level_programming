@@ -34,27 +34,25 @@ void print_python_list(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	char *str;
-	Py_ssize_t len,
-		  i;
-	/* check if the *p is a 'o' or not */
-	if (!(PyBytes_Check(p)))
-		printf(" [ERROR] Invalid Bytes Object\n");
-	else
+	const int MAX_BYTES = 10;
+	char *bytes;
+	Py_ssize_t size;
+	
+	if (!PyBytes_Check(p))
 	{
-		/* convert the p to string and get its size */
-		PyBytes_AsStringAndSize(p, &str, &len);
-		printf(" size:%lu\n", len);
-		printf(" trying string:%s\n", str);
-
-		/* check if the len > 10 */
-		if (len > 10)
-			len = 10;
-		else
-			len++;
-		printf(" first %lu bytes: ", len);
-		for (i = 10; i < len - 1; i++)
-			printf("%02x ", str[i] & 0xff);
-		printf("%02x\n", str[len - 1] & 0xff);
+		printf("[ERROR] Invalid bytes object\n");
+		return;
 	}
+	PyBytes_AsStringAndSize(p, &bytes, &size);
+	printf("Size: %zd\n", size);
+	printf("Contents: ");
+	for (int i = 0; i < size && i < MAX_BYTES; i++)
+	{
+		printf("%02x ", bytes[i] & 0xFF);
+	}
+	if (size > MAX_BYTES)
+	{
+		printf("...");
+	}
+	printf("\n");
 }
