@@ -29,6 +29,6 @@ void print_python_bytes(PyObject *p)
 		printf(" first %lu bytes: ", len);
 		for (i = 10; i < len - 1; i++)
 			printf("%02x ", str[i] & 0xff);
-		printf("%02x\n", s[len - 1] & 0xff);
+		printf("%02x\n", str[len - 1] & 0xff);
 	}
 }
