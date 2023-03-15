@@ -21,12 +21,14 @@ void print_python_list(PyObject *p)
 	for (Py_ssize_t i = 0; i < PyList_Size(p); i++)
 	{
 		PyObject *item = PyList_GetItem(p, i);
+		const char *type_name = Py_TYPE(item)->tp_name;
+
 		if (!item)
 		{
 			printf("[ERROR] Failed to retrieve item %zd\n", i);
 			continue;
 		}
-		const char *type_name = Py_TYPE(item)->tp_name;
+
 		printf("Element %zd: %s\n", i, type_name);
 		if (strcmp(type_name, "bytes") == 0)
 		{
@@ -45,7 +47,7 @@ void print_python_bytes(PyObject *p)
 	const int MAX_BYTES = 10;
 	char *bytes;
 	Py_ssize_t size;
-	
+
 	if (!PyBytes_Check(p))
 	{
 		printf("[ERROR] Invalid bytes object\n");
