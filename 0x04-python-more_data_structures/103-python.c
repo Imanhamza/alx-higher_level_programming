@@ -12,6 +12,7 @@ void print_python_list(PyObject *p)
 	/*const int MAX_BYTES = 10;*/
 	 PyObject *item;
 	 const char *type_name;
+	 Py_ssize_t i;
 
 	if (!PyList_Check(p))
 	{
@@ -19,20 +20,20 @@ void print_python_list(PyObject *p)
 		return;
 	}
 	printf("[*] Python list info\n");
-	printf("[*] Size of the Python list = %zd\n", PyList_Size(p));
-	printf("[*] Allocated = %zd\n", ((PyListObject *) p)->allocated);
-	for (Py_ssize_t i = 0; i < PyList_Size(p); i++)
+	printf("[*] Size of the Python list = %d\n", PyList_Size(p));
+	printf("[*] Allocated = %d\n", ((PyListObject *) p)->allocated);
+	for (i = 0; i < PyList_Size(p); i++)
 	{
 		item = PyList_GetItem(p, i);
 		type_name = Py_TYPE(item)->tp_name;
 
 		if (!item)
 		{
-			printf("[ERROR] Failed to retrieve item %zd\n", i);
+			printf("[ERROR] Failed to retrieve item %d\n", i);
 			continue;
 		}
 
-		printf("Element %zd: %s\n", i, type_name);
+		printf("Element %d: %s\n", i, type_name);
 		if (strcmp(type_name, "bytes") == 0)
 		{
 			print_python_bytes(item);
