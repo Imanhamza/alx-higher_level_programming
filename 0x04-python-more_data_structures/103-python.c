@@ -1,4 +1,4 @@
-#include <python.h>
+#include <Python.h>
 #include <stdio.h>
 
 /**
@@ -31,12 +31,4 @@ void print_python_bytes(PyObject *p)
 			printf("%02x ", str[i] & 0xff);
 		printf("%02x\n", s[len - 1] & 0xff);
 	}
-}
-/**
- * print_python_list - print some basic info about Python lists
- * @p: python object
- * Return: Nothing
- */
-void print_python_list(PyObject *p)
-{
 }
