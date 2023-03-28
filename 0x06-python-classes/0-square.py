@@ -2,6 +2,6 @@
 
 '''A class represents the square'''
 
-class square:
+class Square:
     '''Empty class'''
     pass
