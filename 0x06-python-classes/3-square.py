@@ -21,6 +21,7 @@ class Square:
 
         # set the attribute
         self.__size = size
+
     def area(self):
         '''
         returns the area of the Square
