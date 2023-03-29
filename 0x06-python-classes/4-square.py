@@ -8,7 +8,7 @@ defines a square by: (based on 3-square.py)
 class Square:
     ''' A class dealing with a Square '''
 
-    def __init__(self, size):
+    def __init__(self, size=0):
         ''' initiation of a calss has args
         size (int): Private instance attribute
         '''
