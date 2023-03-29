@@ -51,8 +51,9 @@ class Square:
             _filter = filter(lambda x: type(x) is int and x >= 0, value)
             if len(list(_filter)) == 2:
                 self.__position = value
-            
-            raise TypeError("position must be a tuple of 2 positive integers")
+                return
+            else:
+                raise TypeError("position must be a tuple of 2 positive integers")
 
     def area(self):
         '''
