@@ -47,13 +47,12 @@ class Square:
     @position.setter
     def position(self, value):
         ''' set the Value of position '''
-        if (type(value) is not tuple) and (len(value) != 2):
+        if type(value) == tuple:
+            _filter = filter(lambda x: type(x) is int and x >= 0, value)
+            if len(list(_filter)) == 2:
+                self.__position = value
+            
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif ((value[0] != int or value[0] < 0) and
-                (value[1] != int or value[1] < 0)):
-            raise TypeError("position must be a tuple of 2 positive integers")
-
-        self.__position = value
 
     def area(self):
         '''
