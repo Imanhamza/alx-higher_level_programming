@@ -83,7 +83,8 @@ class Rectangle:
             print("")
 
         for i in range(self.__height):
-            for i in range(self.__width):
+            for j in range(self.__width):
                 _print.append("#")
-            _print.append('\n')
+            if i != self.__height - 1:
+                _print.append('\n')
         return (''.join(_print))
