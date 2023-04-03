@@ -80,7 +80,7 @@ class Rectangle:
 
         _print = []
         if self.__width == 0 or self.__height == 0:
-            _print.append("")
+            return ""
 
         for i in range(self.__height):
             for j in range(self.__width):
