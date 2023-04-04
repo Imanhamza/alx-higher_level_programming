@@ -7,6 +7,8 @@ A class Rectangle that defines a rectangle by: (based on 5-rectangle.py)
 class Rectangle:
     ''' Class to compute rectangle equations '''
 
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         ''' initiation of a calss has args
         width (int): Private instance attribute
@@ -14,7 +16,7 @@ class Rectangle:
         number_of_instances (int): Public instance attribute
         '''
 
-        type(self).number_of_instances = 0
+        Rectangle.number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -36,7 +38,7 @@ class Rectangle:
             raise ValueError("width must be >= 0")
 
         self.__width = value
-        type(self).number_of_instances += 1
+        # type(self).number_of_instances += 1
 
     # Start setting height
 
@@ -55,7 +57,7 @@ class Rectangle:
         elif value < 0:
             raise ValueError("height must be >= 0")
 
-        type(self).number_of_instances += 1
+        # type(self).number_of_instances += 1
         self.__height = value
 
     # compute the area (width * height)
