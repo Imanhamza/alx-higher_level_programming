@@ -97,7 +97,4 @@ class Rectangle:
         to be able to recreate a new instance
         '''
 
-        _print = 'Rectangle(' + str(self.__width) + ', '
-        + str(self.height) + ')'
-
-        return _print
+        return ("Rectangle({}, {})".format(self.__width, self.__height))
