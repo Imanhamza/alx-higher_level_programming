@@ -99,7 +99,7 @@ class Rectangle:
 
         return ("Rectangle({}, {})".format(self.__width, self.__height))
 
-    # Deleting message 
+    # Deleting message
 
     def __del__(self):
         '''
