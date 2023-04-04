@@ -97,4 +97,7 @@ class Rectangle:
         to be able to recreate a new instance
         '''
 
-        return (f"Rectangle({self.__width},{self.__height})")
+        _print = 'Rectangle(' + str(self.__width) + ', '
+        + str(self.height) + ')'
+
+        return _print
