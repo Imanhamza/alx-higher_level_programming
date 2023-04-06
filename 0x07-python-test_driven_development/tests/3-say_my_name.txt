@@ -1,0 +1,20 @@
+================================
+A guide to use 3-say_my_name.py
+================================
+
+A module caontain an print funtion eith prototype
+```say_my_name(first_name, last_name="")```
+
+Usage
+=====
+
+
+```say_my_name(first_name, last_name="")``` prints out the full name entered
+
+::
+
+	>>> say_my_name = __import__('3-say_my_name.py').say_my_name
+	>>> say_my_name("Iman", "Hamza")
+	My name is Iman Hamza
+
+::
