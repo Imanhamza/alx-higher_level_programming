@@ -1,0 +1,19 @@
+================================
+A guide to use 5-text_indentation.py
+================================
+
+A module caontain an print funtion with prototype
+```def print_square(size)```
+
+Usage
+=====
+
+
+```print_square(size)``` prints out a square of '#'
+
+::
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("Text?")
+Text?
+<BLANKLINE>
