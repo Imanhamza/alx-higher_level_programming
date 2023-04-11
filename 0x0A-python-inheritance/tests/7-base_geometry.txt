@@ -36,3 +36,29 @@ TypeError: int must be an integer
 >>> Bg.integer_validator("int", -1)
 Traceback (most recent call last):
 ValueError: int must be greater than 0
+
+>>> Bg.integer_validator("int", [1])
+Traceback (most recent call last):
+TypeError: int must be an integer
+
+>>> Bg.integer_validator("int", {1, 2})
+Traceback (most recent call last):
+TypeError: int must be an integer
+
+>>> Bg.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> Bg.integer_validator(None)
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> Bg.integer_validator({"a": 1}, (1, 2))
+Traceback (most recent call last):
+TypeError: {'a': 1} must be an integer
+
+::
+
+>>> Bg = BaseGeometry(None)
+Traceback (most recent call last):
+TypeError: BaseGeometry() takes no arguments
