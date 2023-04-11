@@ -8,6 +8,13 @@ a class BaseGeometry (based on 6-base_geometry.py).
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> Bg = BaseGeometry()
+
+>>> print(Bg) # doctest: +ELLIPSIS
+<7-base_geometry.BaseGeometry object at ...>
+
+>>> print(Bg.area) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry object at...>>
+
 >>> Bg.integer_validator("int", 0)
 Traceback (most recent call last):
 ValueError: int must be greater than 0
