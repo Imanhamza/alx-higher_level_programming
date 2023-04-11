@@ -15,6 +15,13 @@ a class BaseGeometry (based on 6-base_geometry.py).
 >>> print(Bg.area) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
 <bound method BaseGeometry.area of <7-base_geometry.BaseGeometry object at...>>
 
+>>> print(Bg.integer_validator) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+<bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at...>>
+
+>>> Bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
 >>> Bg.integer_validator("int", 0)
 Traceback (most recent call last):
 ValueError: int must be greater than 0
