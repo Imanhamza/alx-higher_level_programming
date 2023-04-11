@@ -1,0 +1,19 @@
+=================================
+A guide to use 7-base_geometry.py
+=================================
+
+a class BaseGeometry (based on 6-base_geometry.py).
+
+::
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> Bg = BaseGeometry()
+>>> Bg.integer_validator("int", 0)
+Traceback (most recent call last):
+ValueError: int must be greater than 0
+
+>>> Bg.integer_validator("int", 1)
+
+>>> Bg.integer_validator("int", "INT")
+Traceback (most recent call last):
+TypeError: int must be an integer
