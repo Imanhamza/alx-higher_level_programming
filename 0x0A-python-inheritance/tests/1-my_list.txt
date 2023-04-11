@@ -22,5 +22,60 @@ A guide to use 1-my_list.py
 
 ::
 
->>> print(MyList())
+>>> _list = MyList()
+>>> _list.append(-1)
+>>> _list.append(-5)
+>>> _list.append(2)
+>>> _list.append(6)
+>>> _list.append(1)
+>>> print(_list)
+[-1, -5, 2, 6, 1]
+>>> _list.print_sorted()
+[-5, -1, 1, 2, 6]
+>>> print(_list)
+[-1, -5, 2, 6, 1]
+
+::
+
+>>> _empty = MyList()
+>>> print(_empty)
 []
+
+>>> _empty.print_sorted()
+[]
+
+::
+
+>>> _list2 = MyList()
+>>> _list2.append(NULL)
+Traceback (most recent call last):
+NameError: name 'NULL' is not defined
+
+>>> print(_list2)
+[]
+
+>>> _list2.print_sorted()
+[]
+
+::
+
+>>> _list3 = MyList()
+>>> _list3.append(NAN)
+Traceback (most recent call last):
+NameError: name 'NAN' is not defined
+
+>>> print(_list3)
+[]
+
+>>> _list3.print_sorted()
+[]
+
+::
+
+>>> _list4 = MyList()
+>>> _list4.append(None)
+>>> print(_list4)
+[None]
+
+>>> _list4.print_sorted()
+[None]
