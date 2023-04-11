@@ -8,7 +8,7 @@ max_integer = __import__('6-max_integer').max_integer
 class TestMaxInteger(unittest.TestCase):
     ''' A class define the Max_integer function '''
 
-    def max_integer_test(self):
+    def test_max(self):
         ''' Test max_integer '''
 
         self.assertEqual(max_integer([10, 5, 3, 6, 9]), 10)
@@ -18,7 +18,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([ 2, 5, 3.1, 6.7]), 6.7)
         self.assertEqual(max_integer(['int', 'float', 'str']), 'str')
 
-    def empty_list(self):
+    def test_empty(self):
         ''' Test empty list '''
 
         _list = []
