@@ -11,6 +11,7 @@ class Square(Rectangle):
     def __init__(self, size):
         ''' A function to initate a suare '''
 
+        super().integer_validator("size", size)
         self.__size = size
         super().__init__(self.__size, self.__size)
 
