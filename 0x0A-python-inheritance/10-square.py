@@ -14,3 +14,6 @@ class Square(Rectangle):
         self.__size = size
         super().__init__(self.__size, self.__size)
 
+    def area(self):
+        ''' A function computes the area os a square '''
+        return self.__size**2
