@@ -5,6 +5,12 @@
 class MyInt(int):
     ''' A class deals with int '''
 
-    def _myint(self):
-        self.__int = my_int
-        return my_int
+    def __eq__(self, second):
+        ''' rewitrs the equalizer thing '''
+
+        return int(self) != int(second)
+
+    def __ne__(self, second):
+        ''' rewrotes the Non-equal function '''
+
+        return int(self) == int(second)
