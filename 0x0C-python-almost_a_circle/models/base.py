@@ -44,5 +44,6 @@ class Base:
         _dict = []
         for i in list_objs:
             _dict.append(i.to_dictionary())
+        _dict = Base.to_json_string(_dict)
         with open(file_name, 'w') as _file:
-            _file.write(Base.to_json_string(_dict))
+            _file.write(_dict)
