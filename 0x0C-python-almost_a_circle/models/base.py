@@ -49,6 +49,3 @@ class Base:
             _file.write(Base.to_json_string(_dict))
     
     # ist of the JSON string
-
-    def from_json_string(json_string):
-        ''' ''' 
