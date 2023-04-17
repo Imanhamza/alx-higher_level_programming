@@ -151,10 +151,10 @@ class Rectangle(Base):
         ''' A dictionary representation of a Rectangle '''
 
         _dict = {
-                'id' : self.id,
-                'width' : self.width,
-                'height' : self.height,
-                'x' : self.x,
-                'y' : self.y
+                'id': self.id,
+                'width': self.width,
+                'height': self.height,
+                'x': self.x,
+                'y': self.y
                 }
         return _dict
