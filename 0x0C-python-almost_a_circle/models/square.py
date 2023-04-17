@@ -31,4 +31,28 @@ class Square(Rectangle):
     def __str__(self):
         ''' Update the str method with specific phrase '''
 
-        return (f"[Square] ({self.id}) {self.size}/{self.size} - {self.size}")
+        i = self.id
+        s = self.size
+        _x = self.x
+        _y = self.y
+        return (f"[Square] ({i}) {_x}/{_y} - {s}")
+
+    # assign attributes
+
+    def update(self, *args, **kwargs):
+        ''' Update attributes '''
+
+        if args and len(args) != 0:
+            for i in range(len(args)):
+                try:
+                    self.id = args[0]
+                    self.width = args[1]
+                    self.height = args[2]
+                    self.x = args[3]
+                    self.y = args[4]
+                except IndexError:
+                    pass
+        for key, value in kwargs.items():
+            self.__setattr__(key, value)
+        return
+
