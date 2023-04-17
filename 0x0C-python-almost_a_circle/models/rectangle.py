@@ -128,10 +128,10 @@ class Rectangle(Base):
 
     # Assign the arguments
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         ''' A function assigns an argument to each attribute '''
 
-        if len(args) != 0:
+        if args and len(args) != 0:
             for i in range(len(args)):
                 try:
                     self.id = args[0]
@@ -141,3 +141,6 @@ class Rectangle(Base):
                     self.y = args[4]
                 except IndexError:
                     pass
+        for key, value in kwargs.items():
+            self.__setattr__(key, value)
+        return
