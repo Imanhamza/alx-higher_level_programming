@@ -48,4 +48,14 @@ class Base:
         with open(file_name, 'w') as _file:
             _file.write(Base.to_json_string(_dict))
     
-    # ist of the JSON string
+    # list of the JSON string
+
+    @staticmethod
+    def from_json_string(json_string):
+        ''' From JSON to dictionary '''
+
+        if json_string is None or json_string == '[]':
+            return '[]'
+
+        return json.loads(json_string)
+
