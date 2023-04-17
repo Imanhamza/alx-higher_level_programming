@@ -95,3 +95,17 @@ class Rectangle(Base):
         ''' A function to retrive the area '''
 
         return self.__width * self.__height
+
+    # display the shape of rectangle with #
+
+    def display(self):
+        ''' Display the shape of the rectangle '''
+
+        # _print = []
+        if self.__width == 0 or self.__height == 0:
+            print("")
+
+        for i in range(self.height):
+            for j in range(self.width):
+                print("#", end='')
+            print()
