@@ -85,6 +85,6 @@ class Base:
                 _dict = Base.from_json_string(_file.read())
 
                 for i in _dict:
-                    return cls.create(**i)
+                    return Base.create(**i)
         except:
             return []
