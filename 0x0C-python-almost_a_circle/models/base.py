@@ -72,3 +72,20 @@ class Base:
 
         R.update(**dictionary)
         return R
+
+    # List of all intances
+
+    def load_from_file(cls):
+        ''' A function returns a list of instances '''
+
+        file_name = cls.__name__ + '.json'
+        
+        try:
+            with open(filename, 'r') as _file:
+                _file = _file.read()
+                _dict = cls.from_json_string(_file)
+
+                for i in _dict:
+                    return cls.create(**i)
+        except:
+            return []
