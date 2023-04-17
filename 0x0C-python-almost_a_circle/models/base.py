@@ -82,8 +82,7 @@ class Base:
         
         try:
             with open(filename, 'r') as _file:
-                _file = _file.read()
-                _dict = Base.from_json_string(_file)
+                _dict = Base.from_json_string(_file.read())
 
                 for i in _dict:
                     return cls.create(**i)
