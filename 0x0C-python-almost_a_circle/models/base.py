@@ -78,7 +78,7 @@ class Base:
     def load_from_file(cls):
         ''' A function returns a list of instances '''
 
-        file_name = cls.__name__ + '.json'
+        file_name = str(cls.__name__) + '.json'
         
         try:
             _file = open(filename, 'r')
