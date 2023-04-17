@@ -87,6 +87,8 @@ class Base:
         else:
             _dict = Base.from_json_string(_file.read())
 
+            _list = []
             for i in _dict:
-                return cls.create(**i)
+                _list.append(cls.create(**i))
             _file.close()
+            return _list
