@@ -47,7 +47,7 @@ class Base:
 
         with open(file_name, 'w') as _file:
             _file.write(Base.to_json_string(_dict))
-    
+
     # list of the JSON string
 
     @staticmethod
@@ -58,4 +58,3 @@ class Base:
             return '[]'
 
         return json.loads(json_string)
-
