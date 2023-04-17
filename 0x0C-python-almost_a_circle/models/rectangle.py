@@ -125,3 +125,19 @@ class Rectangle(Base):
         _x = self.__x
         _y = self.__y
         return (f"[Rectangle] ({i}) {_x}/{_y} - {w}/{h}")
+
+    # Assign the arguments
+
+    def update(self, *args):
+        ''' A function assigns an argument to each attribute '''
+
+        if len(args) != 0:
+            for i in range(len(args)):
+                try:
+                    self.id = args[0]
+                    self.width = args[1]
+                    self.height = args[2]
+                    self.x = args[3]
+                    self.y = args[4]
+                except IndexError:
+                    pass
