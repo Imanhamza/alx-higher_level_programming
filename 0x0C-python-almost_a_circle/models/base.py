@@ -81,10 +81,12 @@ class Base:
         file_name = cls.__name__ + '.json'
         
         try:
-            with open(filename, 'r') as _file:
-                _dict = Base.from_json_string(_file.read())
-
-                for i in _dict:
-                    return Base.create(**i)
-        except:
+            _file = open(filename, 'r')
+        except FileNotFoundError:
             return []
+        else:
+            _dict = Base.from_json_string(_file.read())
+
+            for i in _dict:
+                return cls.create(**i)
+            _file.close()
