@@ -36,6 +36,10 @@ class TestBase(unittest.TestCase):
     def remain_t(self):
         with self.assertRaises(AttributeError):
             print(Base(12).__nb_instances)
+
+        with self.assertRaises(TypeError):
+            Base(1, 2)
+
         self.assertEqual("hello", Base("hello").id)
         self.assertEqual(5.5, Base(5.5).id)
         self.assertEqual(complex(5), Base(complex(5)).id)
@@ -46,16 +50,28 @@ class TestBase(unittest.TestCase):
         self.assertEqual({1, 2, 3}, Base({1, 2, 3}).id)
         self.assertEqual(frozenset({1, 2, 3}), Base(frozenset({1, 2, 3})).id)
         self.assertEqual(range(5), Base(range(5)).id)
-
         self.assertEqual(b'Python', Base(b'Python').id)
-
         self.assertEqual(bytearray(b'abcefg'), Base(bytearray(b'abcefg')).id)
-
         self.assertEqual(memoryview(b'abcefg'), Base(memoryview(b'abcefg')).id)
-
         self.assertEqual(float('inf'), Base(float('inf')).id)
-
         self.assertNotEqual(float('nan'), Base(float('nan')).id)
 
+    def test_from_json_string(self):
+        ''' Test class for to_json_string function '''
+
+        self.assertEqual(Base.to_json_string(None), "[]")
+        self.assertEqual(Base.to_json_string([]), "[]")
+        with self.subTest():
+            r1 = Rectangle(10, 7, 2, 8, 1)
+            r1_dict = r1.to_dictionary()
+            json_dict = Base.to_json_string([r1_dict])
+            self.assertEqual(r1_dict, {
+                'x': 2, 'width': 10,
+                'id': 1, 'height': 7, 'y': 8})
+            self.assertIs(type(r1_dict), dict)
+
         with self.assertRaises(TypeError):
-            Base(1, 2)
+            Base.to_json_string()
+
+        with self.assertRaises(TypeError):
+             Base.to_json_string([], 1)
