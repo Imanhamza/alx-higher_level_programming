@@ -56,6 +56,23 @@ class TestBase(unittest.TestCase):
         self.assertEqual(float('inf'), Base(float('inf')).id)
         self.assertNotEqual(float('nan'), Base(float('nan')).id)
 
+        # for docstrings
+        self.assertIsNotNone(module_doc)
+        self.assertIsNotNone(Base.load_from_file.__doc__)
+        self.assertIsNotNone(Base.__doc__)
+
+        self.assertIsNotNone(Base.__init__.__doc__)
+        self.assertIs(hasattr(Base, "__init__"), True)
+
+        self.assertIs(hasattr(Base, "create"), True)
+        self.assertIsNotNone(Base.create.__doc__)
+
+        self.assertIs(hasattr(Base, "to_json_string"), True)
+        self.assertIsNotNone(Base.to_json_string.__doc__)
+
+        self.assertIs(hasattr(Base, "save_to_file"), True)
+        self.assertIsNotNone(Base.save_to_file.__doc__)
+
     def test_from_json_string(self):
         ''' Test class for to_json_string function '''
 
