@@ -10,6 +10,6 @@ WHERE title NOT IN (
 
 	LEFT JOIN tv_genres AS tg
 	ON tsg.genre_id = tg.id
-	WHERE tg.name = 'Comdey')
+	WHERE tg.name = 'Comedy')
 
 ORDER BY title;
