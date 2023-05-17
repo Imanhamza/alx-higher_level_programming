@@ -7,5 +7,4 @@ ON tg.id = tsg.genre_id
 LEFT JOIN tv_shows AS ts
 ON ts.id = tsg.show_id
 WHERE ts.title = 'Dexter'
-GROUP BY name
 ORDER BY name;
