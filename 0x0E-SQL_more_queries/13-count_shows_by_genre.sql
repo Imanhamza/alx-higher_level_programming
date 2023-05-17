@@ -5,4 +5,5 @@ FROM tv_genres AS tg
 LEFT JOIN tv_show_genres AS tsg
 ON tg.id = tsg.show_id
 WHERE tsg.show_id IS NOT NULL
-GROUP BY tg.name;
+GROUP BY tg.name
+ORDER BY number_of_shows DESC;
