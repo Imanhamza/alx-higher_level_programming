@@ -3,9 +3,9 @@
 const process = require('process');
 const argu = process.argv;
 
-if (argu.length === 3) {
+if (argu.length === 3 || argu.length < 3) {
   console.log(0);
-} else {
+} else if (argu.length > 3) {
   const num = [];
   for (let i = 2; i < argu.length; i++) {
     num.push(parseInt(argu[i]));
