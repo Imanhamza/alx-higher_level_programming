@@ -3,8 +3,14 @@
 const process = require('process');
 const argu = process.argv;
 
-const num = [];
-for (let i = 2; i < argu.length; i++) {
-  num.push(parseInt(argu[i]));
+if (argu.length === 3) {
+  console.log(0);
+} else {
+  const num = [];
+  for (let i = 2; i < argu.length; i++) {
+    num.push(parseInt(argu[i]));
+  }
+  const index = num.length - 1;
+  const sortedNum = num.sort();
+  console.log(sortedNum[index - 1]);
 }
-console.log(Math.max(...num));
