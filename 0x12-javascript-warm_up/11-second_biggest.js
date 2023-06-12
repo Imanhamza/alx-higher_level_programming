@@ -12,7 +12,7 @@ if (argu.length === 3 || argu.length < 3) {
   }
 
   const index = num.length - 1;
-  const sortedNum = num.sort();
+  const sortedNum = num.sort((a, b) => a - b);
   // console.log(sortedNum);
   console.log(sortedNum[index - 1]);
 }
