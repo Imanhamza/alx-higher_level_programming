@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     # create the query and execute
     query = 'SELECT * FROM states WHERE name LIKE BINARY %s\
-            ORDER BY id', (argv[4])
+            ORDER BY id', (argv[4],)
     cursor.execute(query)
 
     # fetch all rows in the result and print them all
