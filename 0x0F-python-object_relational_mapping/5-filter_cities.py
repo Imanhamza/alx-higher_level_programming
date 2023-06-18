@@ -19,7 +19,7 @@ if __name__ == "__main__":
     FROM states AS s
     JOIN cities AS c
     ON s.id = c.state_id
-    WHERE s.name LIKE BINARY %s
+    WHERE s.name = %s
     ORDER BY c.id'''
     cursor.execute(query, (argv[4],))
 
