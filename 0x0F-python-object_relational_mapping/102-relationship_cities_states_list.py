@@ -20,7 +20,7 @@ if __name__ == "__main__":
     session = _session()
 
     # Query all states and cities
-    states = session.query(State, City).outerjoin(
+    states = session.query(State, City).join(
             City).order_by(City.id).all()
 
     for state, city in states:
