@@ -20,7 +20,8 @@ if __name__ == "__main__":
     session = _session()
 
     # Query all states and cities
-    states = session.query(State).outerjoin(City).order_by(State.id, City.id).all()
+    states = session.query(State).outerjoin(
+            City).order_by(State.id, City.id).all()
 
     for state in states:
         print(f'{state.id}: {state.name}')
