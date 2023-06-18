@@ -15,12 +15,12 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # create the query and execute
-    query = 'SELECT c.name\
+    query = '''SELECT c.name\
             FROM states AS s\
             JOIN cities AS c\
             ON s.id = c.state_id\
-            WHERE s.name LIKE BINARY %s\
-            ORDER BY c.id'
+            WHERE s.name = %s\
+            ORDER BY c.id'''
     cursor.execute(query, (argv[4],))
 
     # fetch all rows in the result and print them all
