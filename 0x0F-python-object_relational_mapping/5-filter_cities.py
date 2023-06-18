@@ -28,9 +28,9 @@ if __name__ == "__main__":
 
     for i in range(len(rows)):
         if rows[i] != rows[-1]:
-            print(rows[i], end=', ')
+            print(''.join(rows[i]), end=', ')
         else:
-            print(rows[i])
+            print(''.join(rows[i]))
             # print(type(rows[i]))
 
     cursor.close()
