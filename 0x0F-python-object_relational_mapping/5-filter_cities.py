@@ -9,18 +9,18 @@ if __name__ == "__main__":
     # connect the database
     db = MySQLdb.connect(
             user=argv[1], passwd=argv[2],
-            database=argv[3], host="localhost", port=3306)
+            database=argv[3], host="localhost", port=3306, charset="utf8")
 
     # Create a cursor object
     cursor = db.cursor()
 
     # create the query and execute
-    query = '''SELECT c.name\
+    query = 'SELECT c.name\
             FROM states AS s\
             JOIN cities AS c\
             ON s.id = c.state_id\
             WHERE s.name = %s\
-            ORDER BY c.id'''
+            ORDER BY c.id'
     cursor.execute(query, (argv[4],))
 
     # fetch all rows in the result and print them all
