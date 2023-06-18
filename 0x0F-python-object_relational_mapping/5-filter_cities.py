@@ -26,11 +26,12 @@ if __name__ == "__main__":
     # fetch all rows in the result and print them all
     rows = cursor.fetchall()
 
-    for i in range(len(rows)):
-        if rows[i] != rows[-1]:
-            print(''.join(rows[i]), end=', ')
-        else:
-            print(''.join(rows[i]))
+    print(", ".join(city[0] for city in rows))
+    #for i in range(len(rows)):
+     #   if rows[i] != rows[-1]:
+      #      print(''.join(rows[i]), end=', ')
+       # else:
+        #    print(''.join(rows[i]))
             # print(type(rows[i]))
 
     cursor.close()
