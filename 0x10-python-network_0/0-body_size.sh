@@ -1,5 +1,3 @@
 #!/bin/bash
-# A Bash script that takes in a URL, sends a request to that URL,
-# and displays the size of the body of the response.
-
-curl -s "$1" | wc -c
+# Bash script to request a URL and display response body size
+curl -sI "$1" | wc -c
