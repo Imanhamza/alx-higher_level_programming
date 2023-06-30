@@ -3,6 +3,11 @@
 
 
 def find_peak(list_of_integers):
+    '''
+    find the peak of the numbers
+    list_of_integers : list of numbers
+    '''
+
     # left and right pointrs
     left = 0
     right = len(list_of_integers) - 1
