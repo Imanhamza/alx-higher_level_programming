@@ -11,15 +11,15 @@ request.get(apiUrl, (error, response, body) => {
   } else {
     const filmsData = JSON.parse(body).results;
     // const characterMovies = filmsData.characters
-let count = 0;
+    let count = 0;
     for (let i = 0; i < filmsData.length; i++) {
-	let characterMovies = filmsData[i].characters
-       for (let j = 0; j < characterMovies.length; j++) {
-         if (characterMovies[j].endsWith('18/')) {
-		count++;
-}
-}
-}
+      const characterMovies = filmsData[i].characters;
+      for (let j = 0; j < characterMovies.length; j++) {
+        if (characterMovies[j].endsWith('18/')) {
+          count++;
+        }
+      }
+    }
     console.log(count);
   }
 });
