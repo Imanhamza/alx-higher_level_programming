@@ -10,9 +10,16 @@ request.get(apiUrl, (error, response, body) => {
     console.log(error);
   } else {
     const filmsData = JSON.parse(body).results;
-    const characterMovies = filmsData.filter((film) =>
-      film.characters.some((character) => character.endsWith('/18/'))
-    );
-    console.log(characterMovies.length);
+    // const characterMovies = filmsData.characters
+let count = 0;
+    for (let i = 0; i < filmsData.length; i++) {
+	let characterMovies = filmsData[i].characters
+       for (let j = 0; j < characterMovies.length; j++) {
+         if (characterMovies[j].endsWith('18/')) {
+		count++;
+}
+}
+}
+    console.log(count);
   }
 });
