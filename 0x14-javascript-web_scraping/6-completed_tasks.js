@@ -17,10 +17,10 @@ request.get(apiUrl, (error, response, body) => {
       // console.log(todo.title);
       if (todo.completed) {
         if (completedTasks[todo.userId]) {
-		completedTasks[todo.userId]++;
-	} else {
-		completedTasks[todo.userId] = 1;
-	}
+          completedTasks[todo.userId]++;
+        } else {
+          completedTasks[todo.userId] = 1;
+        }
       }
     }
     console.log(completedTasks);
