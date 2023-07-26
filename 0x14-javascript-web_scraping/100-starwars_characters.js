@@ -12,10 +12,13 @@ request.get(apiUrl, (error, response, body) => {
   }
   const movieData = JSON.parse(body);
   const chars = movieData.characters;
-  
+
   // console.log(movieData);
   for (const chr of chars) {
     request.get(chr, (error, response, body) => {
+      if (error) {
+        console.log(error);
+      }
       console.log((JSON.parse(body)).name);
     });
   }
