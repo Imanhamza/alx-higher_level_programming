@@ -13,15 +13,19 @@ request.get(apiUrl, (error, response, body) => {
   const movieData = JSON.parse(body);
   const chars = movieData.characters;
   
-  let count = 0;
-  for (let i = 0; i < chars.length; i++) {
-    request.get(chars[i], (error, response, body) => {
-      if (error) {
-        console.log(error);
-      }
-      const characterData = JSON.parse(body);
-      console.log(characterData.name);
-    });
-  }
+  getChar(chars, 0);
+});
+
+// Function to get the index of each character
+function getChar(chr, index) {
+  request(chr[index], (error, respose, body) => {
+    if (error) {
+      console.log(error);
+    }
+    
+    console.log(JSON.parse(body).name);
+    if (index + 1 < chr.length) {
+      getChar(chr, index + 1);
+    }
+  });
 }
-);
